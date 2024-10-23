@@ -1,0 +1,103 @@
+/* paleta de colores*/
+:root { 
+    --blanco: #ffffff; /* claridad en el diseño */
+    --grisClaro: #EEEEEE; /* Inputs */
+    --oscuro: #212121; /* Texto */
+    --verdeMenta: #A9DFBF; /* areas de disponibilidad */
+    --azulPizarra: #34495E; /* secciones principales */
+    --azulCielo:  #5DADE2; /* botones*/
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 16px; /* 1rem = 10px */
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    border: 2px solid red;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /*Centra vertical*/
+    align-items: center;
+}
+
+.container {
+    border: 2px solid black; /*Borde de guia */
+    width: 80rem;
+    height: 50rem;
+    display: flex;
+}
+
+.container__form {
+    border: 2px solid green;
+    width: 100%;
+}
+
+.container__form form {
+    border: 2px solid red; /* Borde de guia */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container__form h2 {
+    font-family: "Roboto", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.container__form span {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.container__input {
+    width: 30rem;
+    height: 4rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0 1.5rem;
+    background-color: var(--grisClaro);
+}
+
+.container__input input {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+}
+
+.container__form a {
+    color: var(--oscuro);
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+}
+
+.container__button {
+    width: 17rem;
+    height: 4.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    background-color: var(--azulCielo);
+    color: var(--blanco);
+}
