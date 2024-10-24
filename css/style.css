@@ -35,11 +35,13 @@ body {
     width: 80rem;
     height: 50rem;
     display: flex;
+    position: relative;
 }
 
 .container__form {
     border: 2px solid green;
     width: 100%;
+    overflow: hidden;
 }
 
 .container__form form {
@@ -100,4 +102,28 @@ body {
     margin-top: 1rem;
     background-color: var(--azulCielo);
     color: var(--blanco);
+}
+
+/* Animación del login */
+.container__form-sign-up {
+    transform: translateX(-100%);
+}
+
+.container.toggle .container__form-sign-in {
+    transform: translateX(100%);
+}
+
+.container.toggle .container__form-sign-up {
+    transform: translateX(0);
+}
+
+/*Bienvenido*/
+.container__welcome {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transform: translateX(100%);
+    background-color: var(--verdeMenta);
 }
