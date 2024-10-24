@@ -1,6 +1,11 @@
-//const btn = document.getElementById("btn");
-//const container = document.querySelector(".container");
+const container = document.querySelector(".container");
+const btnsignIn = document.getElementById("btn-sign-in");
+const btnsignUp = document.getElementById("btn-sign-up");
 
-//btn.addEventListener("click",()=>{
-//    container.classList.toggle("toggle");
-//});
+btnsignIn.addEventListener("click",()=>{
+    container.classList.remove("toggle");
+});
+
+btnsignUp.addEventListener("click",()=>{
+    container.classList.add("toggle");
+});

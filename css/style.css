@@ -22,35 +22,37 @@ body {
     font-size: 16px; /* 1rem = 10px */
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
-    border: 2px solid red;
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center; /*Centra vertical*/
     align-items: center;
+    background-color: var(--grisClaro);
 }
 
 .container {
-    border: 2px solid black; /*Borde de guia */
     width: 80rem;
     height: 50rem;
     display: flex;
     position: relative;
+    background-color: var(--blanco);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.3);
 }
 
 .container__form {
-    border: 2px solid green;
     width: 100%;
     overflow: hidden;
 }
 
 .container__form form {
-    border: 2px solid red; /* Borde de guia */
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: transform 0.5s ease-in-out;
 }
 
 .container__form h2 {
@@ -126,4 +128,50 @@ body {
     align-items: center;
     transform: translateX(100%);
     background-color: var(--verdeMenta);
+    transition: transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
+    overflow: hidden;
+    border-radius: 50% 0 0 50%;
+}
+
+.container.toggle .container__welcome {
+    transform: translateX(0);
+    border-radius: 0 50% 50% 0;
+    background-color: var(--azulCielo);
+}
+
+.container__welcome .welcome {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0 50px;
+    color: var(--blanco);
+    transition: transform 0.5s ease-in-out;
+}
+
+.container__welcome-sign-in {
+    transform: translateX(100%);
+}
+
+.container__welcome h3 {
+    font-size: 40px;
+}
+
+.container__welcome p {
+    font-size: 14px;
+    text-align: center;
+}
+
+.container__welcome .container__button {
+    border: 2px solid white;
+    background-color: transparent;
+}
+
+.container.toggle .container__welcome-sign-in {
+    transform: translateX(0);
+}
+
+.container.toggle .container__welcome-sign-up {
+    transform: translateX(-100%); 
 }
