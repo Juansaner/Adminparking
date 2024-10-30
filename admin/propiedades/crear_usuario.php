@@ -11,23 +11,37 @@ $password = $_POST['password'];
 //Hashea la password
 password_hash($password, PASSWORD_DEFAULT);
 
-// Mostrar los valores sanitizados para verificar que están bien
-echo "Nombre sanitizado: " . $name . "<br>";
-echo "Apellido sanitizado: " . $lastname . "<br>";
-echo "Email sanitizado: " . $email . "<br>";
-
 exit;
 
-//Insertar base de datos
-$query = "INSERT INTO usuarios (name, lastname, email, password) VALUES ('$name', '$lastname', '$email', '$password')";
+$errores = [];
 
-//Almacena en la base de datos
-$result = mysqli_query($db, $query);
-
-if($result){
-    echo "Insertado correctamente";
+//Arreglo mensajes de error
+if(!$name){
+    $errores[] = "El nombre es obligatorio";
 }
 
+if(!$lastname){
+    $errores[] = "El apellido es obligatorio";
+}
 
+if(!$email){
+    $errores[] = "El email es obligatorio";
+}
+
+if(!$password){
+    $errores[] = "La contraseña es obligatoria";
+}
+
+if(empty($errores)){
+    //Insertar base de datos
+    $query = "INSERT INTO usuarios (name, lastname, email, password) VALUES ('$name', '$lastname', '$email', '$password')";
+
+    //Almacena en la base de datos
+    $result = mysqli_query($db, $query);
+
+    if($result){
+        echo "Insertado correctamente";
+    }
+}
 
 ?>
