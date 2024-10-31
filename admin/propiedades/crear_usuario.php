@@ -6,13 +6,12 @@ $db = connectDatabase();
 //Captura los datos
 $name = mysqli_real_escape_string($db, htmlspecialchars($_POST['name']));
 $lastname = mysqli_real_escape_string($db, preg_replace("/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]/", "", htmlspecialchars($_POST['lastname'])));
-$email = mysqli_real_escape_string($db, filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
+$email = mysqli_real_escape_string($db, filter_var($_POST['email'], FILTER_VALIDATE_EMAIL));
 $password = $_POST['password'];
 //Hashea la password
-password_hash($password, PASSWORD_DEFAULT);
+$passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
-exit;
-
+//Arreglo que almacena errores
 $errores = [];
 
 //Arreglo mensajes de error
@@ -34,7 +33,7 @@ if(!$password){
 
 if(empty($errores)){
     //Insertar base de datos
-    $query = "INSERT INTO usuarios (name, lastname, email, password) VALUES ('$name', '$lastname', '$email', '$password')";
+    $query = "INSERT INTO usuarios (name, lastname, email, password) VALUES ('$name', '$lastname', '$email', '$passwordHash')";
 
     //Almacena en la base de datos
     $result = mysqli_query($db, $query);

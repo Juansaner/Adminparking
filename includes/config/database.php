@@ -1,4 +1,5 @@
 <?php
+//Función para conectar a la bd
  function connectDatabase() : mysqli {
     $db = mysqli_connect('localhost', 'root', 'root', 'parqueadero');
 

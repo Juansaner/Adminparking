@@ -14,16 +14,16 @@
   <body>
     <div class="container">
         <div class="container__form">
-            <form class="container__form-sign-in" method="POST" action="/admin/propiedades/crear_usuario.php">
+            <form class="container__form-sign-in" method="POST" action="login.php">
                 <h2>Iniciar sesión</h2>
                 <span>Use su correo y contraseña</span>
                 <div class="container__input container__input--mail">
                     <ion-icon name="mail-outline"></ion-icon>
-                    <input type="text" placeholder="Email">
+                    <input type="text" name="email" placeholder="Email">
                 </div>
                 <div class="container__input container__input--password">
                     <ion-icon name="lock-closed-outline"></ion-icon>
-                    <input type="password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password">
                 </div>
                 <a href="#">¿Olvidaste tu contraseña?</a>
                 <button class="container__button container__button--sign-in" type="submit">Iniciar sesión</button>
