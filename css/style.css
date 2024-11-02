@@ -6,6 +6,9 @@
     --verdeMenta: #A9DFBF; /* areas de disponibilidad */
     --azulPizarra: #34495E; /* secciones principales */
     --azulCielo:  #5DADE2; /* botones*/
+    --rojo: #fa9494; /* notificación error */
+    --rojoTexto: #8B0000; /* texto notificacion error */
+    --verdeTexto: #5cdf90;
 }
 
 *{
@@ -174,4 +177,22 @@ body {
 
 .container.toggle .container__welcome-sign-up {
     transform: translateX(-100%); 
+}
+
+/* Notificaciones formulario */
+.alerta {
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    margin: 0.3rem 0;
+}
+
+.error {
+    background-color: var(--rojo);
+    color: var(--rojoTexto);
+}
+
+.exito {
+    background-color: var(--verdeMenta);
+    color: var(--verdeTexto);
 }
