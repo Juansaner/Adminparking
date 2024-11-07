@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 header("Location: ./admin/index.php");
             } else {
-                echo "El password es incorrecto";
+                $errores[] = "La contraseña es incorrecta";
             }
         } else {
             $errores[] = "Usuario no encontrado";
@@ -47,9 +47,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         
     }
 }
-
 ?>
 
+<!--Formularios inicio de sesión y registro -->
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -61,17 +61,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
     <title>Login</title>
   </head>
   <body>
     <div class="container">
         <div class="container__form">
-            <form class="container__form-sign-in" method="POST" action="login.php">
+            <form class="container__form-sign-in" method="POST" action="inicio_sesion.php">
                 <h2>Iniciar sesión</h2>
                 <span>Use su correo y contraseña</span>
-                <?php foreach($errores as $error): ?>
-                    <div class="alerta error"><?php echo $error; ?></div>
-                <?php endforeach ?>
                 <div class="container__input container__input--mail">
                     <ion-icon name="mail-outline"></ion-icon>
                     <input type="text" name="email" placeholder="Email">
@@ -84,50 +82,31 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button class="container__button container__button--sign-in" type="submit">Iniciar sesión</button>
             </form>
         </div> <!--.container__form -->
-        
-        <div class="container__form">
-            <form class="container__form-sign-up" method="POST" action="/adminparking/admin/propiedades/crear_usuario.php">
-                <h2>Registrarse</h2>
-                <span>Use su correo electrónico para registrarse</span>
-                <?php foreach($errores as $error): ?>
-                    <div class="alerta error"><?php echo $error; ?></div>
-                <?php endforeach ?>
-                <div class="container__input container__input--mail">
-                    <ion-icon name="person-outline"></ion-icon>
-                    <input type="text" name="name" placeholder="Name">
-                </div>
-                <div class="container__input container__input--mail">
-                    <ion-icon name="person-outline"></ion-icon>
-                    <input type="text" name="lastname" placeholder="Last name">
-                </div>
-                <div class="container__input container__input--mail">
-                    <ion-icon name="mail-outline"></ion-icon>
-                    <input type="text" name="email" placeholder="Email">
-                </div>
-                <div class="container__input container__input--password">
-                    <ion-icon name="lock-closed-outline"></ion-icon>
-                    <input type="password" name="password" placeholder="Password">
-                </div>
-                <button class="container__button container__button--sign-up" type="submit">Registrarse</button>
-            </form>
-        </div> <!--.container__form -->
 
-        <div class="container__welcome">
-            <div class="container__welcome-sign-up welcome">
+        <div class="container__welcome sign-in">
+            <div class="container__welcome-sign-in welcome">
                 <h3>¡Bienvenido!</h3>
                 <p>Ingrese sus datos personales para usar todas las funciones del sitio</p>
-                <button class="container__button" id="btn-sign-up">Registrarse</button>
+                <a class="container__button" href='/adminparking/registro.php'>Registrarse</a>
             </div>
-            <div class="container__welcome-sign-in welcome">
-                <h3>¡Hola!</h3>
-                <p>Registrese con sus datos personales para usar todas las funciones del sitio</p>
-                <button class="container__button" id="btn-sign-in">Iniciar sesión</button>
-            </div>
-        </div>
+        </div> <!--.container__welcome -->
 
     </div> <!--.container -->
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+    <!--Notificaciones-->
+    <?php if(!empty($errores)) {
+        $error = implode('\n', $errores);
+        echo "<script>
+            swal({
+                title: '¡Error!',
+                text: '$error',
+                icon: 'error'
+            });
+        </script>";
+    } ?>
   </body>
 </html>

@@ -37,16 +37,15 @@ body {
     width: 80rem;
     height: 50rem;
     display: flex;
-    position: relative;
     background-color: var(--blanco);
     border-radius: 15px;
     overflow: hidden;
+    position: relative;
     box-shadow: 0 0 10px rgb(0, 0, 0, 0.3);
 }
 
 .container__form {
-    width: 100%;
-    overflow: hidden;
+    width: 50%;
 }
 
 .container__form form {
@@ -55,7 +54,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: transform 0.5s ease-in-out;
 }
 
 .container__form h2 {
@@ -105,21 +103,16 @@ body {
     border-radius: 0.5rem;
     cursor: pointer;
     margin-top: 1rem;
+}
+
+.container__button--sign-up {
     background-color: var(--azulCielo);
     color: var(--blanco);
 }
 
-/* Animación del login */
-.container__form-sign-up {
-    transform: translateX(-100%);
-}
-
-.container.toggle .container__form-sign-in {
-    transform: translateX(100%);
-}
-
-.container.toggle .container__form-sign-up {
-    transform: translateX(0);
+.container__button--sign-in {
+    background-color: var(--verdeMenta);
+    color: var(--blanco);
 }
 
 /*Bienvenido*/
@@ -130,16 +123,15 @@ body {
     display: flex;
     align-items: center;
     transform: translateX(100%);
-    background-color: var(--verdeMenta);
-    transition: transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
-    overflow: hidden;
     border-radius: 50% 0 0 50%;
 }
 
-.container.toggle .container__welcome {
-    transform: translateX(0);
-    border-radius: 0 50% 50% 0;
+.sign-up {
     background-color: var(--azulCielo);
+}
+
+.sign-in{
+    background-color: var(--verdeMenta);
 }
 
 .container__welcome .welcome {
@@ -150,11 +142,6 @@ body {
     gap: 20px;
     padding: 0 50px;
     color: var(--blanco);
-    transition: transform 0.5s ease-in-out;
-}
-
-.container__welcome-sign-in {
-    transform: translateX(100%);
 }
 
 .container__welcome h3 {
@@ -169,30 +156,11 @@ body {
 .container__welcome .container__button {
     border: 2px solid white;
     background-color: transparent;
+    text-decoration: none;
+    color: var(--blanco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.container.toggle .container__welcome-sign-in {
-    transform: translateX(0);
-}
 
-.container.toggle .container__welcome-sign-up {
-    transform: translateX(-100%); 
-}
-
-/* Notificaciones formulario */
-.alerta {
-    padding: 1rem;
-    text-align: center;
-    font-weight: bold;
-    margin: 0.3rem 0;
-}
-
-.error {
-    background-color: var(--rojo);
-    color: var(--rojoTexto);
-}
-
-.exito {
-    background-color: var(--verdeMenta);
-    color: var(--verdeTexto);
-}
